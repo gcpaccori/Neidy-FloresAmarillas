@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#03050a"><meta name="description" content="Mi capibarita, estas flores amarillas florecen para ti."><title>Mi capibarita · Flores amarillas</title><link rel="stylesheet" href="./style.css"></head>
-<body>
+<body class="booting">
 <canvas id="universe" aria-label="Universo tridimensional de flores amarillas. Arrastra para girarlo."></canvas>
 <div class="vignette" aria-hidden="true"></div>
+<div id="boot-copy" class="boot-copy" role="status" aria-live="polite">
+  <span class="boot-star">✦</span>
+  <p id="boot-text">Las flores están llegando…</p>
+</div>
 <header class="minimal-header"><button id="sound" class="icon" aria-label="Silenciar música" aria-pressed="true" title="Música activada">♫<span class="slash"></span></button></header>
 <main>
 <div class="heading"><p class="eyebrow" id="chapter">01 / 06 · EL COMIENZO</p><h1 id="title">Todo empieza<br>contigo, <em>mi capibarita.</em></h1><p id="subtitle">Hay flores que se regalan.<br>Y universos que nacen por alguien.</p></div>
 <div id="whisper" role="status" aria-live="polite"></div>
-<div class="bottom"><div class="gesture"><span class="tiny-star">✦</span><p id="instruction">Mantén tu dedo aquí.<br>Haz que nuestro universo despierte.</p></div><button id="action" class="action" aria-label="Mantener para despertar el universo"><span class="ring"></span><span id="action-icon">✧</span></button><button id="accessible" class="text-button">O toca para comenzar</button><nav id="progress" aria-label="Progreso de la dedicatoria"></nav><p class="signature">PARA MI CAPIBARITA, MI AMOR</p></div>
+<div class="bottom"><div class="gesture"><span class="tiny-star">✦</span><p id="instruction">Mantén tu dedo aquí.<br>Haz que nuestro universo despierte.</p></div><button id="action" class="action" aria-label="Mantener para despertar el universo" disabled><span class="ring"></span><span id="action-icon">✧</span></button><button id="accessible" class="text-button" disabled>O toca para comenzar</button><nav id="progress" aria-label="Progreso de la dedicatoria"></nav><p class="signature">PARA MI CAPIBARITA, MI AMOR</p></div>
 </main>
 <div id="flower-note" class="flower-note" hidden aria-live="polite">
   <span class="flower-note-mark">✦</span>
