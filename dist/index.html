@@ -1,14 +1,27 @@
 <!doctype html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#03050a"><meta name="description" content="Neidy, este universo florece para ti. 21 de septiembre de 2026."><title>Neidy · Mi universo amarillo</title><link rel="stylesheet" href="./style.css"></head>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#03050a"><meta name="description" content="Neidy, estas flores amarillas florecen para ti."><title>Neidy · Flores amarillas</title><link rel="stylesheet" href="./style.css"></head>
 <body>
 <canvas id="universe" aria-label="Universo tridimensional de flores amarillas. Arrastra para girarlo."></canvas>
 <div class="vignette" aria-hidden="true"></div>
-<header><a class="brand" href="./" aria-label="Volver al comienzo">N<span>✦</span>G</a><div class="date">21 SEPTIEMBRE 2026<br><span>UN UNIVERSO PARA TI</span></div><button id="sound" class="icon" aria-label="Activar música" aria-pressed="false">♫<span class="slash"></span></button></header>
+<header class="minimal-header"><button id="sound" class="icon" aria-label="Silenciar música" aria-pressed="true" title="Música activada">♫<span class="slash"></span></button></header>
 <main>
 <div class="heading"><p class="eyebrow" id="chapter">01 / 06 · EL COMIENZO</p><h1 id="title">Todo empieza<br>contigo, <em>Neidy.</em></h1><p id="subtitle">Hay flores que se regalan.<br>Y universos que nacen por alguien.</p></div>
 <div id="whisper" role="status" aria-live="polite"></div>
 <div class="bottom"><div class="gesture"><span class="tiny-star">✦</span><p id="instruction">Mantén tu dedo aquí.<br>Haz que nuestro universo despierte.</p></div><button id="action" class="action" aria-label="Mantener para despertar el universo"><span class="ring"></span><span id="action-icon">✧</span></button><button id="accessible" class="text-button">O toca para comenzar</button><nav id="progress" aria-label="Progreso de la dedicatoria"></nav><p class="signature">PARA MI ESPOSA, MI AMOR, MI NEIDY</p></div>
 </main>
+<div id="flower-viewer" class="flower-viewer" hidden aria-hidden="true">
+  <div class="flower-viewer-backdrop" data-close-viewer></div>
+  <section class="flower-viewer-card" role="dialog" aria-modal="true" aria-labelledby="flower-viewer-label">
+    <button id="flower-viewer-close" class="flower-viewer-close" aria-label="Cerrar mensaje">×</button>
+    <p id="flower-viewer-label" class="flower-viewer-label">UNA FLOR PARA TI</p>
+    <p id="flower-viewer-text" class="flower-viewer-text"></p>
+    <div class="flower-viewer-actions" aria-label="Tamaño del mensaje">
+      <button id="text-smaller" class="viewer-btn" aria-label="Reducir texto">A−</button>
+      <button id="text-bigger" class="viewer-btn" aria-label="Agrandar texto">A+</button>
+    </div>
+    <p class="flower-viewer-hint">Toca fuera para volver a las flores</p>
+  </section>
+</div>
 <button id="motion" class="motion" aria-label="Reducir movimiento" aria-pressed="false">Movimiento suave</button>
 <div id="fallback" hidden><p>Neidy, mi amor</p><h2>Eres mi universo<br>de flores amarillas.</h2><p>Hoy, mañana y en todos mis días.<br>Con amor, Gabriel · 21.09.2026</p><p>Tu navegador no pudo abrir el universo 3D.<br>Puedes intentar de nuevo en Chrome o Safari.</p><button onclick="location.reload()">Volver a intentar</button></div>
 <noscript><div class="noscript">Neidy, eres mi universo de flores amarillas. Con amor, Gabriel. Activa JavaScript para descubrir tu regalo.</div></noscript>
