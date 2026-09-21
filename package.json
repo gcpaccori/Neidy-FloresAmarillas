@@ -1,0 +1,13 @@
+{
+  "name": "neidy-universo-amarillo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "check": "node --check dist/app.js"
+  },
+  "devDependencies": {
+    "vite": "7.1.7"
+  }
+}
