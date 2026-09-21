@@ -64,48 +64,76 @@ function hideFlowerNote(){if(!flowerNote)return;flowerNote.classList.remove('sho
 function clearFlowerFocus(){focusFlower=-1;focusUntil=0;cameraZoomTarget=manualZoom;hideFlowerNote();document.body.classList.remove('flower-burst');setTimeout(()=>{if(focusFlower<0)document.body.classList.remove('immersive');},420);}
 function showFlowerMessage(flowerIndex=0){let idx=(flowerIndex*7+stage*5+Math.floor(time))%flowerMessages.length;if(idx===lastFlowerMessage)idx=(idx+1)%flowerMessages.length;lastFlowerMessage=idx;focusFlower=flowerIndex;focusUntil=time+6.3;cameraZoomTarget=Math.max(manualZoom,1.82);showFlowerNote(flowerMessages[idx]);document.body.classList.add('immersive','flower-burst');interactionEnergy=1.15;burst=1;chime();vibrate();}
 const finalLexiconTiers=[
- ['mi capibarita','mi vida','mi cielo','mi sol','mi hogar','mi calma','mi ternura','mi alegría','mi compañera','mi primavera'],
- ['tierna','dulce','bonita','cálida','adorable','serena','gentil','alegre'],
- ['luminosa','brillante','radiante','única','especial','preciosa','inolvidable','valiente'],
- ['contigo','siempre tú','te elijo','qué bonito quererte','mi lugar favorito eres tú','todas mis primaveras'],
- ['mi corazón vuelve a ti','eres mi casa en cualquier lugar','gracias por existir conmigo','quiero seguir caminando contigo'],
- ['kuyakuyki','qanlla','sumaq','munay','sonqoy','kusisqa','qanmi kawsayniy'],
- ['I love you','only you','my love','my home','my sunshine','always you','you are my favorite place'],
- ['愛してる','大好き','ずっと一緒','君が好き','私の光','ずっと君'],
- ['eu te amo','meu amor','sempre você','minha luz','meu lar'],
- ['je t’aime','mon amour','toujours toi','ma lumière','mon bonheur'],
- ['ti amo','sempre tu','mia luce','mia felicità','con te'],
- ['mi coincidencia favorita','mi pequeña eternidad','mi luz cuando todo se apaga','mi paz en medio del ruido'],
- ['quiero conocer todas tus versiones','quiero seguir celebrando tus pequeñas alegrías','quiero hacer más suaves tus días difíciles'],
- ['si el cielo tuviera un nombre bonito, pensaría en ti','entre millones de caminos volvería a buscar el tuyo','hasta este universo se queda corto'],
- ['cada pétalo guarda algo que todavía quiero vivir contigo','cada estrella de aquí quisiera aprender otra forma de decirte cuánto te quiero'],
- ['si todo volviera a empezar, volvería a encontrarte','después de cada final, volvería a elegir nuestro comienzo']
+ ['mi capibarita','mi vida','mi cielo','mi sol','mi hogar','mi calma','mi ternura','mi alegría','mi compañera','mi primavera','mi estrella bonita','mi refugio','mi rincón feliz','mi persona favorita'],
+ ['tierna','dulce','bonita','cálida','adorable','serena','gentil','alegre','cariñosa','delicada','encantadora','acogedora'],
+ ['luminosa','brillante','radiante','única','especial','preciosa','inolvidable','valiente','auténtica','increíble','maravillosa','fascinante'],
+ ['traviesa','curiosa','risueña','soñadora','creativa','paciente','atenta','noble','sensible','divertida','chispeante','espontánea'],
+ ['contigo','siempre tú','te elijo','qué bonito quererte','mi lugar favorito eres tú','todas mis primaveras','mi mejor casualidad','mi bonito destino'],
+ ['mi corazón vuelve a ti','eres mi casa en cualquier lugar','gracias por existir conmigo','quiero seguir caminando contigo','me haces querer guardar los días','tu sonrisa cambia el paisaje'],
+ ['me gusta escucharte','me gusta verte feliz','me encanta reír contigo','quiero celebrar tus logros','quiero cuidar tus días tranquilos','quiero conocer tus próximos sueños'],
+ ['kuyakuyki','qanlla','sumaq','munay','sonqoy','kusisqa','qanmi kawsayniy','sumaq warmi','munay sonqo','kuska'],
+ ['I love you','only you','my love','my home','my sunshine','always you','you are my favorite place','my favorite smile','my safe place','my beautiful coincidence'],
+ ['愛してる','大好き','ずっと一緒','君が好き','私の光','ずっと君','君は特別','大切な人','君と一緒に','私の幸せ'],
+ ['eu te amo','meu amor','sempre você','minha luz','meu lar','minha alegria','meu sorriso favorito','com você','minha pessoa favorita'],
+ ['je t’aime','mon amour','toujours toi','ma lumière','mon bonheur','avec toi','mon sourire préféré','ma douceur','mon endroit préféré'],
+ ['ti amo','sempre tu','mia luce','mia felicità','con te','mia gioia','il mio sorriso preferito','la mia persona preferita'],
+ ['mi coincidencia favorita','mi pequeña eternidad','mi luz cuando todo se apaga','mi paz en medio del ruido','mi sonrisa inesperada','mi pedacito de primavera','mi abrazo favorito','mi buena noticia'],
+ ['mi conversación favorita','mi silencio cómodo','mi aventura tranquila','mi razón para quedarme un rato más','mi recuerdo que todavía no existe','mi próxima historia bonita'],
+ ['quiero conocer todas tus versiones','quiero seguir celebrando tus pequeñas alegrías','quiero hacer más suaves tus días difíciles','quiero seguir aprendiendo cómo hacerte sonreír','quiero acompañarte en lo que todavía no imaginamos'],
+ ['quiero escucharte incluso cuando no sepas cómo explicarlo','quiero estar cuando tengas algo enorme que contar','quiero estar también cuando solo quieras descansar','quiero seguir encontrando detalles nuevos en ti'],
+ ['si el cielo tuviera un nombre bonito, pensaría en ti','entre millones de caminos volvería a buscar el tuyo','hasta este universo se queda corto','si las estrellas hablaran les enseñaría tu nombre'],
+ ['si pudiera guardar una estación sería una primavera contigo','si pudiera repetir un instante escogería uno donde estés sonriendo','si cada flor fuera una palabra todavía me faltarían flores'],
+ ['cada pétalo guarda algo que todavía quiero vivir contigo','cada estrella de aquí quisiera aprender otra forma de decirte cuánto te quiero','cada vuelta de este universo inventa otra manera de encontrarte'],
+ ['hay días que se vuelven recuerdos porque estabas tú','hay lugares que se sienten hogar porque llegaste conmigo','hay canciones que suenan distinto después de pensarte'],
+ ['me gusta que seas tú sin tener que parecerte a nadie','me gusta tu manera de existir incluso en los días desordenados','me gusta que siempre quede algo nuevo por descubrir de ti'],
+ ['quiero muchos desayunos tranquilos contigo','quiero caminatas sin prisa','quiero risas inesperadas','quiero fotografías que todavía no tomamos','quiero conversaciones que terminen demasiado tarde'],
+ ['quiero verte cumplir cosas que hoy parecen lejanas','quiero aplaudir tus pequeños avances','quiero recordar contigo de dónde empezamos','quiero construir recuerdos que todavía no tienen nombre'],
+ ['eres esa persona a la que quiero contarle lo bueno','eres esa persona que hace más amable un día cualquiera','eres esa persona que convierte un momento simple en recuerdo'],
+ ['qué suerte coincidir contigo','qué bonito poder admirarte','qué bonito seguir sorprendiéndome contigo','qué bonito que todavía nos queden tantas cosas por vivir'],
+ ['si todo volviera a empezar, volvería a encontrarte','después de cada final, volvería a elegir nuestro comienzo','en otra primavera también buscaría tus manos','si el universo reinicia, yo vuelvo hacia ti']
 ];
 const finalDiscoverySequence=[
- 'mi capibarita','tierna','luminosa','qué bonito quererte','mi lugar favorito eres tú',
- 'sumaq','kuyakuyki','qanmi kawsayniy','my sunshine','you are my favorite place',
- '私の光','ずっと一緒','eu te amo','sempre você','ma lumière','toujours toi',
- 'mia luce','sempre tu','mi coincidencia favorita','mi pequeña eternidad',
- 'mi luz cuando todo se apaga','quiero conocer todas tus versiones',
- 'quiero seguir celebrando tus pequeñas alegrías','quiero hacer más suaves tus días difíciles',
+ 'mi capibarita','tierna','luminosa','traviesa','qué bonito quererte','mi lugar favorito eres tú',
+ 'mi mejor casualidad','tu sonrisa cambia el paisaje','me gusta escucharte','me encanta reír contigo',
+ 'sumaq','kuyakuyki','munay sonqo','qanmi kawsayniy','my sunshine','my favorite smile',
+ 'you are my favorite place','my beautiful coincidence','私の光','ずっと一緒','君は特別','大切な人',
+ 'eu te amo','sempre você','minha alegria','meu sorriso favorito','ma lumière','toujours toi',
+ 'mon sourire préféré','ma douceur','mia luce','sempre tu','mia gioia','con te',
+ 'mi coincidencia favorita','mi pequeña eternidad','mi abrazo favorito','mi buena noticia',
+ 'mi conversación favorita','mi aventura tranquila','mi recuerdo que todavía no existe',
+ 'quiero conocer todas tus versiones','quiero seguir celebrando tus pequeñas alegrías',
+ 'quiero hacer más suaves tus días difíciles','quiero seguir aprendiendo cómo hacerte sonreír',
+ 'quiero escucharte incluso cuando no sepas cómo explicarlo',
  'si el cielo tuviera un nombre bonito, pensaría en ti',
  'entre millones de caminos volvería a buscar el tuyo',
+ 'si las estrellas hablaran les enseñaría tu nombre',
+ 'si cada flor fuera una palabra todavía me faltarían flores',
  'cada pétalo guarda algo que todavía quiero vivir contigo',
- 'cada estrella de aquí quisiera aprender otra forma de decirte cuánto te quiero',
- 'hasta este universo se queda corto',
+ 'cada vuelta de este universo inventa otra manera de encontrarte',
+ 'hay lugares que se sienten hogar porque llegaste conmigo',
+ 'me gusta que seas tú sin tener que parecerte a nadie',
+ 'quiero fotografías que todavía no tomamos',
+ 'quiero conversaciones que terminen demasiado tarde',
+ 'quiero verte cumplir cosas que hoy parecen lejanas',
+ 'quiero recordar contigo de dónde empezamos',
+ 'eres esa persona a la que quiero contarle lo bueno',
+ 'eres esa persona que convierte un momento simple en recuerdo',
+ 'qué suerte coincidir contigo',
+ 'qué bonito seguir sorprendiéndome contigo',
  'si todo volviera a empezar, volvería a encontrarte',
  'después de cada final, volvería a elegir nuestro comienzo',
- 'Siempre tú, incluso después de volver a empezar.'
+ 'en otra primavera también buscaría tus manos',
+ 'Si el universo reinicia, yo vuelvo hacia ti.'
 ];
 const typedFinalPhrases=[
  'Mi capibarita… te quiero en todos mis idiomas: kuyakuyki · I love you · 愛してる · eu te amo · je t’aime · ti amo.',
  'Siempre tú… qanlla · only you · ずっと君 · sempre você · toujours toi · sempre tu. Y después de todo este universo, volvería a elegirte otra vez.'
 ];
 function finalWordLimit(){return innerWidth<700?12:20;}
-function clearFinalWords(){if(finalWords)finalWords.replaceChildren();activeFinalWords=0;finalWordQueue=0;bangWordQueue=0;finalUnlockQueue.length=0;}
-function unlockedFinalPool(){const tiers=Math.max(1,Math.min(finalLexiconTiers.length,1+Math.floor(finalRichness/2)));return finalLexiconTiers.slice(0,tiers).flat();}
+const finalRecentTexts=[];function clearFinalWords(){if(finalWords)finalWords.replaceChildren();activeFinalWords=0;finalWordQueue=0;bangWordQueue=0;finalUnlockQueue.length=0;finalRecentTexts.length=0;}
+function unlockedFinalPool(){const tiers=Math.max(1,Math.min(finalLexiconTiers.length,1+Math.floor(finalRichness/2)));return finalLexiconTiers.slice(0,tiers).flat();}function rememberFinalText(text){finalRecentTexts.push(text);if(finalRecentTexts.length>18)finalRecentTexts.shift();}function pickFreshFinalText(){const pool=unlockedFinalPool(),fresh=pool.filter(x=>!finalRecentTexts.includes(x)),source=fresh.length?fresh:pool;return source[Math.floor(rand()*source.length)];}
 function unlockFinalRichness(){const index=Math.min(finalRichness,finalDiscoverySequence.length-1),text=finalDiscoverySequence[index];finalRichness++;finalUnlockQueue.push(text);finalWordQueue=Math.min(14,finalWordQueue+1);}
-function emitFinalWord(allowDuringBang=false){if(!finalWords||stage!==5||activeFinalWords>=finalWordLimit()||(!allowDuringBang&&bigBangStart>0))return false;const pool=unlockedFinalPool(),text=finalUnlockQueue.length?finalUnlockQueue.shift():pool[Math.floor(rand()*pool.length)],el=document.createElement('span');el.className='final-word';el.textContent=text;const phrase=text.length>24,speed=Math.max(1.25,5.7-finalCharge*3.65),y=7+rand()*80,scale=(phrase?.64:.76)+rand()*(phrase?.3:.52),tilt=(rand()-.5)*(phrase?4:8);el.style.setProperty('--y',y+'vh');el.style.setProperty('--dur',(speed*(.94+rand()*.25))+'s');el.style.setProperty('--scale',scale);el.style.setProperty('--tilt',tilt+'deg');el.style.opacity=String(.28+finalCharge*.54);if(phrase)el.classList.add('phrase');activeFinalWords++;let cleaned=false;const cleanup=()=>{if(cleaned)return;cleaned=true;activeFinalWords=Math.max(0,activeFinalWords-1);el.remove();};el.addEventListener('animationend',cleanup,{once:true});finalWords.append(el);return true;}
+function emitFinalWord(allowDuringBang=false){if(!finalWords||stage!==5||activeFinalWords>=finalWordLimit()||(!allowDuringBang&&bigBangStart>0))return false;const text=finalUnlockQueue.length?finalUnlockQueue.shift():pickFreshFinalText(),el=document.createElement('span');rememberFinalText(text);el.className='final-word';el.textContent=text;const phrase=text.length>24,speed=Math.max(1.25,5.7-finalCharge*3.65),y=7+rand()*80,scale=(phrase?.64:.76)+rand()*(phrase?.3:.52),tilt=(rand()-.5)*(phrase?4:8);el.style.setProperty('--y',y+'vh');el.style.setProperty('--dur',(speed*(.94+rand()*.25))+'s');el.style.setProperty('--scale',scale);el.style.setProperty('--tilt',tilt+'deg');el.style.opacity=String(.28+finalCharge*.54);if(phrase)el.classList.add('phrase');activeFinalWords++;let cleaned=false;const cleanup=()=>{if(cleaned)return;cleaned=true;activeFinalWords=Math.max(0,activeFinalWords-1);el.remove();};el.addEventListener('animationend',cleanup,{once:true});finalWords.append(el);return true;}
 function openSunReveal(){if(!sunReveal||!sunRevealImage||!sunRevealImage.naturalWidth)return;clearTimeout(sunRevealTimer);sunReveal.hidden=false;requestAnimationFrame(()=>sunReveal.classList.add('show'));sunRevealTimer=setTimeout(()=>{sunReveal.classList.remove('show');setTimeout(()=>{if(!sunReveal.classList.contains('show'))sunReveal.hidden=true;},650);},2800);burst=Math.max(burst,.75);interactionEnergy=Math.max(interactionEnergy,1.1);chime();}
 function showSunReveal(){if(!sunReveal||!sunRevealImage)return;if(sunRevealImage.complete&&sunRevealImage.naturalWidth){openSunReveal();return;}sunRevealPending=true;sunRevealImage.addEventListener('load',()=>{if(sunRevealPending){sunRevealPending=false;openSunReveal();}},{once:true});sunRevealImage.addEventListener('error',()=>{sunRevealPending=false;sunReveal.hidden=true;},{once:true});}
 function typeFinalPhrase(index){if(!finalWords||finalTyping||index>=typedFinalPhrases.length)return;finalTyping=true;const el=document.createElement('span');el.className='final-typewriter final-typewriter-'+index;finalWords.append(el);const text=typedFinalPhrases[index];let p=0;const tick=()=>{if(stage!==5){el.remove();finalTyping=false;return;}el.textContent=text.slice(0,p++);if(p<=text.length){setTimeout(tick,index===0?38:32);}else{finalMilestone=Math.max(finalMilestone,index+1);setTimeout(()=>{el.classList.add('leaving');setTimeout(()=>el.remove(),850);finalTyping=false;if(finalMilestone<2&&finalCharge>=.9)typeFinalPhrase(1);else if(pendingBigBang&&finalMilestone>=2)triggerBigBang();},index===0?1700:2200);}};tick();}
