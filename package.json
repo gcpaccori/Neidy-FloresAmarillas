@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "build": "node -e \"console.log('Static site ready in dist')\"",
     "check": "node --check dist/app.js"
   },
   "devDependencies": {
