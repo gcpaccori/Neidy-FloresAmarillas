@@ -42,3 +42,21 @@ body.ready .heading,body.ready .bottom,body.ready .minimal-header{opacity:1}
 body.booting #universe{filter:saturate(1.12) brightness(1.08)}
 body.booting .vignette{background:linear-gradient(180deg,rgba(2,3,10,.04),transparent 15%,transparent 87%,rgba(2,3,10,.2)),radial-gradient(ellipse at center,transparent 72%,rgba(2,3,10,.06))}
 @keyframes bootStar{0%,100%{transform:translateY(0) scale(.9);opacity:.55}50%{transform:translateY(-5px) scale(1.16);opacity:1}}
+
+
+/* Final layout and kinetic reset */
+.minimal-header{padding-top:calc(30px + env(safe-area-inset-top))!important}
+.heading{top:calc(84px + env(safe-area-inset-top))!important}
+.restart{display:none!important}
+.final-words{position:fixed;inset:0;z-index:17;pointer-events:none;overflow:hidden;contain:layout paint;opacity:0;transition:opacity .5s ease}
+body.final-chapter .final-words{opacity:1}
+.final-word{position:absolute;left:105vw;top:var(--y);white-space:nowrap;color:#ffe8a0;font:italic clamp(17px,2.8vw,30px)/1 Georgia,'Times New Roman',serif;text-shadow:0 0 16px rgba(255,202,75,.28),0 3px 20px rgba(0,0,0,.48);transform:translate3d(0,0,0) scale(var(--scale)) rotate(var(--tilt));animation:finalWordFly var(--dur) linear forwards;will-change:transform,opacity}
+body.big-bang .final-word{filter:blur(.4px) brightness(1.25)}
+body.big-bang .heading,body.big-bang .bottom{opacity:0!important;transform:scale(.9)!important}
+body.big-bang #universe{filter:saturate(1.38) brightness(1.22) contrast(1.04)}
+body.big-bang::after{content:"";position:fixed;inset:0;z-index:16;pointer-events:none;background:radial-gradient(circle at center,rgba(255,232,146,.95) 0,rgba(255,185,36,.25) 9%,transparent 32%);animation:bigBangFlash 2.75s ease-out both}
+@keyframes finalWordFly{0%{transform:translate3d(0,0,0) scale(var(--scale)) rotate(var(--tilt));opacity:0}8%{opacity:1}88%{opacity:.9}100%{transform:translate3d(-125vw,0,0) scale(var(--scale)) rotate(var(--tilt));opacity:0}}
+@keyframes bigBangFlash{0%{opacity:0}33%{opacity:.08}46%{opacity:1}58%{opacity:.16}100%{opacity:0}}
+@media(min-width:800px){.heading{top:92px!important}}
+@media(max-height:700px){.heading{top:70px!important}}
+@media(max-height:700px){body.final-chapter .heading{top:66px!important}}
