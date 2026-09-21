@@ -25,3 +25,14 @@ body.flower-burst .vignette{background:linear-gradient(180deg,rgba(3,5,10,.08),t
 body.flower-burst #universe{filter:saturate(1.12) brightness(1.08)}
 @keyframes flowerCardIn{0%{opacity:0;transform:translateY(20px) scale(.9)}55%{opacity:1}100%{transform:translateY(0) scale(1)}}
 @media(max-width:600px){.flower-viewer-card{padding:31px 20px 23px;border-radius:24px}.flower-viewer-text{font-size:clamp(27px,9vw,40px)}.minimal-header{padding-right:14px}}
+
+#universe{transition:filter 1.15s ease;filter:saturate(1.04) brightness(1.03)}
+.vignette{background:linear-gradient(180deg,rgba(2,3,10,.14),transparent 26%,transparent 73%,rgba(2,3,10,.42) 97%),radial-gradient(ellipse at center,transparent 55%,rgba(2,3,10,.16))}
+body::before{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:0;background:
+radial-gradient(circle at 50% 54%,rgba(255,198,48,.055),transparent 18%),
+radial-gradient(circle at 28% 38%,rgba(85,108,190,.045),transparent 24%),
+radial-gradient(circle at 72% 66%,rgba(173,94,180,.035),transparent 25%);filter:blur(18px);animation:dreamDrift 18s ease-in-out infinite alternate}
+body.immersive #universe{filter:saturate(1.16) brightness(1.09)}
+body.flower-burst #universe{filter:saturate(1.24) brightness(1.12) contrast(1.025)}
+body.immersive .vignette{background:linear-gradient(180deg,rgba(2,3,10,.045),transparent 18%,transparent 82%,rgba(2,3,10,.24)),radial-gradient(ellipse at center,transparent 65%,rgba(2,3,10,.08))}
+@keyframes dreamDrift{0%{transform:translate3d(-1.5%,-1%,0) scale(1);opacity:.75}100%{transform:translate3d(1.5%,1.2%,0) scale(1.08);opacity:1}}
